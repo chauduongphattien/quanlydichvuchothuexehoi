@@ -4,9 +4,45 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:qlCar.present"
+             
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="900">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="40"/>
+            <RowDefinition  Height="3*"/>
+            <RowDefinition  Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="1" Width="850" Height="450"
+                       HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto"
+                      BorderBrush="Red"
+                      BorderThickness="2">
+            <ListView x:Name="lvK_hang" Background="Transparent">
+                <ListView.View>
+                    <GridView>
+
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter  Property="Background" Value="black"/>
+                                <Setter Property="Opacity" Value="0.5"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                        
+                        <GridViewColumn Header="ID" Width="50"/>
+                        <GridViewColumn Header="ID" Width="50"/>
+                        <GridViewColumn Header="ID" Width="50"/>
+                        <GridViewColumn Header="ID" Width="50"/>
+                        <GridViewColumn Header="ID" Width="50"/>
+                        <GridViewColumn Header="ID" Width="50"/>
+                    </GridView>
+                    
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
     </Grid>
 </UserControl>

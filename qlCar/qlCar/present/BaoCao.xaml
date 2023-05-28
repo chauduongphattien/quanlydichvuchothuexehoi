@@ -5,8 +5,56 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:qlCar.present"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="1000">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="Transparent">
+            <Label Content="Báo cáo" Foreground="Cyan" FontSize="20" VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center"/>
+        </Border>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="450" Width="900"
+                      VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <ListView Background="Transparent">
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                        
+                        <GridViewColumn Header="ma bao cao" Width="100"/>
+                        <GridViewColumn Header="ma bao cao" Width="100"/>
+                        <GridViewColumn Header="ma bao cao" Width="100"/>
+                        <GridViewColumn Header="ma bao cao" Width="100"/>
+                        <GridViewColumn Header="ma bao cao" Width="100"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Border Margin="20,0,0,0" BorderThickness="0" Background="Purple" Width="100" CornerRadius="9" Height="30">
+                <Button Content="Xuất báo cáo"  Background="Transparent"
+                        Foreground="White" BorderThickness="0" />
+            </Border>
+
+
+            <Border Margin="600,0,0,0" BorderThickness="0" Background="Purple" Width="100" CornerRadius="9" Height="30">
+                <Button Content="Theo ngày"  Background="Transparent"
+                        Foreground="White" BorderThickness="0" />
+            </Border>
+            <DatePicker Height="30" Margin="20,0,0,0"/>
+
+        </StackPanel>
     </Grid>
 </UserControl>

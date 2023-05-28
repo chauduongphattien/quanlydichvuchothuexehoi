@@ -84,6 +84,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="present\home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="present\KhachHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +122,9 @@
     </Compile>
     <Compile Include="present\DatXe.xaml.cs">
       <DependentUpon>DatXe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="present\home.xaml.cs">
+      <DependentUpon>home.xaml</DependentUpon>
     </Compile>
     <Compile Include="present\KhachHang.xaml.cs">
       <DependentUpon>KhachHang.xaml</DependentUpon>

@@ -34,3 +34,5 @@ C:\Users\21110\Videos\winend\qlCar\qlCar\obj\Debug\present\NhanVien.baml
 C:\Users\21110\Videos\winend\qlCar\qlCar\obj\Debug\present\TaiKhoan.baml
 C:\Users\21110\Videos\winend\qlCar\qlCar\obj\Debug\present\XeHoi.baml
 C:\Users\21110\Videos\winend\qlCar\qlCar\obj\Debug\present\Window1.baml
+C:\Users\21110\Videos\winend\qlCar\qlCar\obj\Debug\present\home.g.cs
+C:\Users\21110\Videos\winend\qlCar\qlCar\obj\Debug\present\home.baml

@@ -15,9 +15,9 @@
         <Border BorderThickness="2" BorderBrush="Red" CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="Purple" Offset="0"/>
-                    <GradientStop Color="Violet" Offset="0.5"/>
-                    <GradientStop Color="Violet" Offset="1"/>
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Purple" Offset="0.5"/>
+                    <GradientStop Color="Black" Offset="1"/>
 
                 </LinearGradientBrush>
             </Border.Background>
