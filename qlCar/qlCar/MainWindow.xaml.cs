@@ -24,38 +24,33 @@ namespace qlCar
 
     public partial class MainWindow : Window
     {
+
         login lg;
 
         string userName;
         string pass;
-        int vitri; // 0 là quản lý, 1 là nhân viên thông thương , 2 là kế toán
+        string vitri; 
+        int id;
         NhanVien nhan_vien;
         XeHoi Xe_hoi;
         KhachHang khach_hang;
         TaiKhoan tai_khoan;
         DatXe dat_xe;
         BaoTri bao_tri;
-        BaoCao bao_cao = new BaoCao();
+        BaoCao bao_cao;
         home trang_chu;
         public string UserName { get => userName; set => userName = value; }
         public string Pass { get => pass; set => pass = value; }
-        public int Vitri { get => vitri; set => vitri = value; }
+        public string Vitri { get => vitri; set => vitri = value; }
+        public int Id { get => id; set => id = value; }
 
         public MainWindow()
         {
             lg = new login();
             lg.ShowDialog();
-           
             InitializeComponent();
-            UserName = lg.txtUser.Text;
-            nhan_vien = new NhanVien();
-            Xe_hoi=new XeHoi();
-            khach_hang = new KhachHang();
-            tai_khoan= new TaiKhoan();
-            dat_xe = new DatXe();
-            bao_tri = new BaoTri();
-
-            trang_chu = new home();
+            Vitri = lg.vi_tri;
+            Id = lg.id;
             homeBtn.IsChecked = true;
         }
 
@@ -80,41 +75,50 @@ namespace qlCar
        
         private void homeBtn_Checked(object sender, RoutedEventArgs e)
         {
+            trang_chu = new home();
             mainFrame.Navigate(trang_chu);
         }
 
         private void taikhoanBtn_Checked(object sender, RoutedEventArgs e)
         {
+            tai_khoan = new TaiKhoan(Id);
             mainFrame.Navigate(tai_khoan);
+           // System.Windows.MessageBox.Show(Id.ToString());
         }
 
         private void carBtn_Checked(object sender, RoutedEventArgs e)
         {
+            Xe_hoi = new XeHoi();
             mainFrame.Navigate(Xe_hoi);
         }
 
         private void NhanvienBtn_Checked(object sender, RoutedEventArgs e)
         {
+            nhan_vien = new NhanVien(Id);
             mainFrame.Navigate(nhan_vien);
         }
 
         private void orderBtn_Checked(object sender, RoutedEventArgs e)
         {
+            dat_xe = new DatXe();
             mainFrame.Navigate(dat_xe);
         }
 
         private void khachhang_Checked(object sender, RoutedEventArgs e)
         {
+            khach_hang = new KhachHang();
             mainFrame.Navigate(khach_hang);
         }
 
         private void baotri_Checked(object sender, RoutedEventArgs e)
         {
+            bao_tri = new BaoTri();
             mainFrame.Navigate(bao_tri);
         }
 
         private void baocaoBtn_Checked(object sender, RoutedEventArgs e)
         {
+            bao_cao = new BaoCao(this.mainFrame);
             mainFrame.Navigate(bao_cao);
         }
     }

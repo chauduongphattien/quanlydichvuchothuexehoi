@@ -21,14 +21,17 @@
             </Grid.ColumnDefinitions>
             <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Grid.Column="0">
                 <TextBox Margin="10,0,0,0" x:Name="idFindTXT" Width="100" Height="20" />
-                <Button x:Name="findBtn" Width="20" Height="20" Margin="20,0,0,0" Background="Transparent" BorderThickness="0">
+                <Button x:Name="findBtn" Click="findBtn_Click" Width="20" Height="20" Margin="20,0,0,0" Background="Transparent" BorderThickness="0">
                     <fa:IconImage Icon="Search" Foreground="White"/>
                 </Button>
                 <Label Content="Nhập Id để tìm kiếm" Foreground="White" VerticalContentAlignment="Center" FontSize="15"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Column="1">
-                <Button Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Center"  Margin="20,0,0,0">
+                <Button Background="Transparent"
+                        x:Name="themnvBut"
+                        Click="themnvBut_Click"
+                        BorderThickness="0" HorizontalContentAlignment="Center"  Margin="20,0,0,0">
                     <fa:IconImage Icon="UserPlus" Foreground="Green" Height="30" Width="40"/>
                 </Button>
             </StackPanel>
@@ -38,11 +41,20 @@
                               VerticalScrollBarVisibility="Auto">
             <ScrollViewer.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="Gray" Offset="0"/>
                     <GradientStop Color="Black" Offset="1"/>
                 </LinearGradientBrush>
             </ScrollViewer.Background>
-            <ListView x:Name="listViewNhanVien" SelectionMode="Single" SelectionChanged="listViewNhanVien_SelectionChanged">
+            <ListView x:Name="listViewNhanVien" SelectionMode="Single" SelectionChanged="listViewNhanVien_SelectionChanged" Background="Transparent">
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
                 <ListView.View>
                     <GridView>
 
@@ -68,21 +80,60 @@
                         <GridViewColumn Header=" ID" Width="50">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Content="{Binding Id}"/>
+                                    <Label Content="{Binding id}" Foreground="red"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Ten" Width="300"/>
+                        <GridViewColumn Header="Ten" Width="300" DisplayMemberBinding="{Binding Ten}"/>
                         <GridViewColumn Header="Gioi tinh" Width="50">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <fa:IconImage Icon="{Binding icon}" Foreground="{Binding iconCl}"/>
+                                    <fa:IconImage Icon="{Binding iconString}" Foreground="{Binding iconStringColor}" Width="10"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Email" Width="100"/>
-                        <GridViewColumn Header="Chuc vu" Width="100"/>
-                        <GridViewColumn Header="Thâm Niên" Width="100"/>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding mail}" Width="100"/>
+                        <GridViewColumn Header="Chuc vu" DisplayMemberBinding="{Binding vitriCV}" Width="100"/>
+                        <GridViewColumn Header="Thâm Niên" DisplayMemberBinding="{Binding soNamLV}" Width="100"/>
+                        <GridViewColumn Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="Transparent" BorderThickness="0" Click="Button_Click" CommandParameter="{Binding}">
+                                        <fa:IconImage Icon="Gear" Foreground="Brown" Width="15"/>
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="40">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="Transparent" BorderThickness="0" Click="Button_Click_2"  CommandParameter="{Binding}">
+                                        <fa:IconImage Icon="Eye" Foreground="Blue" Width="15"/>
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="40">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="Transparent" BorderThickness="0" Click="Button_Click_3"  CommandParameter="{Binding}">
+                                        <fa:IconImage Icon="Message" Foreground="White" Width="10"/>
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="40">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="Transparent" BorderThickness="0" Click="Button_Click_1"  CommandParameter="{Binding}">
+                                        <fa:IconImage Icon="Trash" Foreground="White" Width="10"/>
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:local="clr-namespace:qlCar.present"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1000">
@@ -22,7 +23,17 @@
         <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto"
                       Height="500" Width="900" Grid.Row="1">
-            <ListView Background="Transparent">
+            <ListView Background="Transparent" x:Name="listviewBaotri" SelectionMode="Single">
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+
+
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
@@ -34,11 +45,14 @@
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
                         
-                        <GridViewColumn Header="ma xe" Width="100"/>
-                        <GridViewColumn Header="ma xe" Width="100"/>
-                        <GridViewColumn Header="ma xe" Width="100"/>
-                        <GridViewColumn Header="ma xe" Width="100"/>
-                        <GridViewColumn Header="ma xe" Width="100"/>
+                        <GridViewColumn Header="Ma bao tri" Width="100" DisplayMemberBinding="{Binding Ma_BT}"/>
+                        <GridViewColumn Header="biển số xe" Width="100" DisplayMemberBinding="{ Binding SoXe }"/>
+                        <GridViewColumn Header="Ngay bao tri" Width="100" DisplayMemberBinding="{Binding NgayBatDau,StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                        <GridViewColumn Header="ngay ket thuc" Width="100" DisplayMemberBinding="{Binding ngayKetThuc,StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                        <GridViewColumn Header="chi phi" Width="100" DisplayMemberBinding="{Binding chiphi}"/>
+                       
+                       
+
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -50,23 +64,36 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Horizontal">
                 <Label Content="Chi tiết" Foreground="White" Margin="20,0,0,0"/>
-                <TextBlock Width="400" Height="150" Margin="10,0,0,0"/>
+                <TextBlock Width="400" Height="100" Margin="10,0,0,0"  x:Name="tBInfor" Foreground="White" FontSize="15"/>
             </StackPanel>
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Orientation="Horizontal">
                 <Border Background="Purple" CornerRadius="10" BorderThickness="0">
                     <Button Content="xem" Width="80" Height="30" FontSize="15"
                             Foreground="White" Background="Transparent"
+                            x:Name="xemthongtinbut"
+                            Click="xemthongtinbut_Click"
                             BorderThickness="0"/>
                 </Border>
 
-                <TextBlock Width="50" Height="30" Background="White" Margin="100,0,10,0"/>
 
-                <Border Background="DarkCyan" CornerRadius="10" BorderThickness="0">
-                    <Button Content="Sô Lương" Width="100" Height="30" FontSize="15"
+                <Border Margin="20,0,20,0" Background="DarkCyan" CornerRadius="10" BorderThickness="0">
+                    <Button Content="số lượng" Width="100" Height="30" FontSize="15"
                             Foreground="White" Background="Transparent"
+                            x:Name="demxebaotri"
+                            Click="demxebaotri_Click"
                             BorderThickness="0"/>
                 </Border>
+
+                <Border Margin="0,0,20,0" Background="DarkCyan" CornerRadius="10" BorderThickness="0">
+                    <Button Content="Hoàn tất" Width="100" Height="30" FontSize="15"
+                            Foreground="White" Background="Transparent"
+                             x:Name="hoantatbtn"
+                            Click="hoantatbtn_Click"
+                            BorderThickness="0"/>
+                </Border>
+
+
 
             </StackPanel>
         </Grid>

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="quanlyxehoiDATAModelStoreContainer" CdmEntityContainer="quanlyxehoiDATAEntities">
+    <EntitySetMapping Name="BaoCaos">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.BaoCao">
+        <MappingFragment StoreEntitySet="BaoCao">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tongSoXe" ColumnName="tongSoXe" />
+          <ScalarProperty Name="soXeDaThue" ColumnName="soXeDaThue" />
+          <ScalarProperty Name="soxeConLai" ColumnName="soxeConLai" />
+          <ScalarProperty Name="DoanThu" ColumnName="DoanThu" />
+          <ScalarProperty Name="soxeDangBaoTri" ColumnName="soxeDangBaoTri" />
+          <ScalarProperty Name="NgayBaoCao" ColumnName="NgayBaoCao" />
+          <ScalarProperty Name="LoiNhuan" ColumnName="LoiNhuan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BaoTris">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.BaoTri">
+        <MappingFragment StoreEntitySet="BaoTri">
+          <ScalarProperty Name="Ma_BT" ColumnName="Ma_BT" />
+          <ScalarProperty Name="SoXe" ColumnName="SoXe" />
+          <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
+          <ScalarProperty Name="LoaiDV" ColumnName="LoaiDV" />
+          <ScalarProperty Name="chiphi" ColumnName="chiphi" />
+          <ScalarProperty Name="ngayKetThuc" ColumnName="ngayKetThuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatTruocs">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.DatTruoc">
+        <MappingFragment StoreEntitySet="DatTruoc">
+          <ScalarProperty Name="maDon" ColumnName="maDon" />
+          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="NgayNhanXe" ColumnName="NgayNhanXe" />
+          <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="vitriCV" ColumnName="vitriCV" />
+          <ScalarProperty Name="soNamLV" ColumnName="soNamLV" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="avt" ColumnName="avt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThueXes">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.ThueXe">
+        <MappingFragment StoreEntitySet="ThueXe">
+          <ScalarProperty Name="Ma_GD" ColumnName="Ma_GD" />
+          <ScalarProperty Name="MaKhach" ColumnName="MaKhach" />
+          <ScalarProperty Name="SoXe" ColumnName="SoXe" />
+          <ScalarProperty Name="NgayThue" ColumnName="NgayThue" />
+          <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+          <ScalarProperty Name="songaythue" ColumnName="songaythue" />
+          <ScalarProperty Name="chiphi" ColumnName="chiphi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinNhans">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.TinNhan">
+        <MappingFragment StoreEntitySet="TinNhan">
+          <ScalarProperty Name="idGui" ColumnName="idGui" />
+          <ScalarProperty Name="idNhan" ColumnName="idNhan" />
+          <ScalarProperty Name="noidung" ColumnName="noidung" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XEHOIs">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.XEHOI">
+        <MappingFragment StoreEntitySet="XEHOI">
+          <ScalarProperty Name="bienSo" ColumnName="bienSo" />
+          <ScalarProperty Name="HangXe" ColumnName="HangXe" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="MauSac" ColumnName="MauSac" />
+          <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
+          <ScalarProperty Name="namsanxuat" ColumnName="namsanxuat" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="GiaThue" ColumnName="GiaThue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Luongs">
+      <EntityTypeMapping TypeName="quanlyxehoiDATAModel.Luong">
+        <MappingFragment StoreEntitySet="Luong">
+          <ScalarProperty Name="namCongHien" ColumnName="namCongHien" />
+          <ScalarProperty Name="huowngLuong" ColumnName="huowngLuong" />
+          <ScalarProperty Name="vitri" ColumnName="vitri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="doiThongTin" FunctionName="quanlyxehoiDATAModel.Store.doiThongTin" />
+    <FunctionImportMapping FunctionImportName="dsp_datxe" FunctionName="quanlyxehoiDATAModel.Store.dsp_datxe" />
+    <FunctionImportMapping FunctionImportName="sp_AddNhanVien" FunctionName="quanlyxehoiDATAModel.Store.sp_AddNhanVien" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="quanlyxehoiDATAModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_baotri" FunctionName="quanlyxehoiDATAModel.Store.sp_baotri" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="quanlyxehoiDATAModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="quanlyxehoiDATAModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="quanlyxehoiDATAModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanlyxehoiDATAModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="quanlyxehoiDATAModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanlyxehoiDATAModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_login" FunctionName="quanlyxehoiDATAModel.Store.sp_login" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="quanlyxehoiDATAModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="quanlyxehoiDATAModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_xuatbaocao" FunctionName="quanlyxehoiDATAModel.Store.sp_xuatbaocao" />
+  </EntityContainerMapping>
+</Mapping>

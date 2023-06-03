@@ -1,4 +1,5 @@
-﻿using System;
+﻿using qlCar.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace qlCar.present
         public KhachHang()
         {
             InitializeComponent();
+            khachHangHand khH = new khachHangHand();
+            lvK_hang.ItemsSource = khH.getallKhachang();
         }
     }
 }

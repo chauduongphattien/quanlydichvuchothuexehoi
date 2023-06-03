@@ -20,9 +20,50 @@ namespace qlCar.present
     /// </summary>
     public partial class home : UserControl
     {
+        string path;
+        int index=1;
+        List<string> backgr = new List<string> { "../../image/340175410_232008729346432_6103797438936527641_n.jpg", "../../image/car.jpg", "../../image/xedo.jpg" };
+        List<string> contenl = new List<string> { "Mẫu xinh", "Xe xịn", "Sang trọng" };
+        string content;
         public home()
         {
             InitializeComponent();
+            path = backgr[index].ToString();
+            content = contenl[index];
+
+           
+              slide.ImageSource = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+            ctLB.Content= content;
+           
+        }
+
+        private void tranferright_Click(object sender, RoutedEventArgs e)
+        {
+            index++;
+            if (index == 3) index = 0;
+            content = contenl[index];
+            path = backgr[index];
+            slide.ImageSource = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+            ctLB.Content = content;
+            /*ImageBrush im = new ImageBrush();
+            im.ImageSource = new BitmapImage(new Uri(path, UriKind.Relative));
+            slide.Background = im;*/
+
+
+
+
+
+        }
+
+        private void tranferleft_Click(object sender, RoutedEventArgs e)
+        {
+
+            index--;
+            if (index == -1) index = 2;
+            path = backgr[index];
+            path = backgr[index];
+            slide.ImageSource = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+            ctLB.Content = content;
         }
     }
 }

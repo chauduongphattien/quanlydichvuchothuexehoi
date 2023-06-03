@@ -14,14 +14,30 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Background="Green">
-            <Label Content="Kính chào quý khách" Foreground="White" VerticalContentAlignment="Center"
+            <Label Content="Danh sách đặt xe" Foreground="White" VerticalContentAlignment="Center"
                    HorizontalContentAlignment="Center"
                    FontSize="24"/>
         </Border>
 
-        <ScrollViewer BorderThickness="0" Margin="0,20,0,0" Height="350" Width="900" Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+        <ScrollViewer  BorderThickness="0" Margin="0,20,0,0" Height="350" Width="900" Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
                       Background="Transparent">
-            <ListView BorderThickness="1,0,1,0" x:Name="list_datxe" Background="Transparent">
+            
+            
+            
+            
+            
+            <ListView SelectionMode="Single" BorderThickness="1,0,1,0" x:Name="list_datxe" Background="Transparent">
+
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+
                 <ListView.View>
                     <GridView>
 
@@ -32,12 +48,13 @@
                                 
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
+
+                        <GridViewColumn Header="ma thuê" DisplayMemberBinding="{Binding Ma_GD}" Width="100"/>
+                        <GridViewColumn Header="mã khách" DisplayMemberBinding="{Binding MaKhach}" Width="100"/>
+                        <GridViewColumn Header="số xe" DisplayMemberBinding="{Binding SoXe}" Width="100"/>
+                        <GridViewColumn Header="Ngày thuê" DisplayMemberBinding="{Binding NgayThue,StringFormat='{}{0:dd/MM/yyyy}'}"  Width="100"/>
+                        <GridViewColumn Header="ngày trả" DisplayMemberBinding="{Binding NgayTra,StringFormat='{}{0:dd/MM/yyyy}'}" Width="100"/>
                         
-                        <GridViewColumn Header="maxe" Width="100"/>
-                        <GridViewColumn Header="maxe" Width="100"/>
-                        <GridViewColumn Header="maxe" Width="100"/>
-                        <GridViewColumn Header="maxe" Width="100"/>
-                        <GridViewColumn Header="maxe" Width="100"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -56,22 +73,18 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <StackPanel  Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ComboBox Height="20" Width="200">
-                        <ComboBoxItem Content="1"/>
-                        <ComboBoxItem Content="1"/>
-                        <ComboBoxItem Content="1"/>
+                    <ComboBox x:Name="ghecombo" Height="20" Width="200">
+                       
                     </ComboBox>
                     <Label Content="ghế" Foreground="White" VerticalContentAlignment="Center" Margin="10,0,0,0"
                            FontSize="20"/>
                 </StackPanel>
 
                 <StackPanel  Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ComboBox Height="20" Width="200">
-                        <ComboBoxItem Content="1"/>
-                        <ComboBoxItem Content="1"/>
-                        <ComboBoxItem Content="1"/>
+                    <ComboBox Height="20" x:Name="hangcombo" Width="200">
+                       
                     </ComboBox>
-                    <Label Content="Giá thuê" Foreground="White" VerticalContentAlignment="Center" Margin="10,0,0,0"
+                    <Label Content="hãng xe" Foreground="White" VerticalContentAlignment="Center" Margin="10,0,0,0"
                            FontSize="20"/>
                 </StackPanel>
                 
@@ -89,15 +102,17 @@
 
                 <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Orientation="Horizontal">
-                    <DatePicker Width="200" Height="30" BorderThickness="0"/>
-                    <Label Content="Ngày trả xe" Foreground="White" FontSize="20" Margin="10,0,0,0"/>
+                    <Button x:Name="hoanttatBtn" Click="hoanttatBtn_Click" Content="Nhận lại" Foreground="White" Width="100" Height="30" Background="Transparent"/>
+                    <Label Content="Xác nhận xe đã trả" Foreground="White" FontSize="20" Margin="10,0,0,0"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Orientation="Horizontal">
                     <Border Background="Purple" CornerRadius="10" BorderThickness="0">
                         <Button BorderThickness="0" Content="Check" Width="100" Height="30" Background="Transparent" 
-                                Foreground="White" FontSize="15"/>
+                                Foreground="White" FontSize="15"
+                                x:Name="checkBtn"
+                                Click="checkBtn_Click"/>
                     </Border>
                 </StackPanel>
 

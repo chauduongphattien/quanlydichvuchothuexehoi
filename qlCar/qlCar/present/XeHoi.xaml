@@ -14,19 +14,17 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0">
-                <ComboBox x:Name="listboxGheNgoi" Width="50" Height="20" Margin="20,0,0,0" >
-                    <ListBoxItem Content="1"/>
-                    <ListBoxItem Content="1"/>
-                    <ListBoxItem Content="1"/>
+                <ComboBox x:Name="comboTrangthai" Width="50" Height="20" Margin="20,0,0,0" >
+                 
                 </ComboBox>
                 <Label Content="Trạng thái" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="10" FontFamily="Open Sans"/>
 
-                <ComboBox x:Name="comboboxMauSac" Width="100" Height="20" Margin="40,0,0,0">
+                <ComboBox x:Name="comboboxSoghe" Width="100" Height="20" Margin="40,0,0,0">
                     
                 </ComboBox>
-                <Label Content="Hãng xe" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="10" FontFamily="Open Sans"/>
+                <Label Content="Số ghế" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="10" FontFamily="Open Sans"/>
 
-                <Button Width="60" Height="20" Background="Transparent" Margin="20,10,10,10">
+                <Button Width="60" Height="20" Background="Transparent" Margin="20,10,10,10" x:Name="timkiemBut" Click="timkiemBut_Click">
                     <fa:IconImage Icon="MagnifyingGlass" Foreground="White"/>
                 </Button>
 
@@ -36,7 +34,7 @@
 
             <ScrollViewer Grid.Row="1"  HorizontalScrollBarVisibility="Auto"
                               VerticalScrollBarVisibility="Auto">
-                <ListView Background="Transparent">
+                <ListView Background="Wheat" x:Name="listViewXeHoi">
                     <ListView.View>
                         <GridView>
 
@@ -57,11 +55,37 @@
 
                             </GridView.ColumnHeaderContainerStyle>
 
-                            <GridViewColumn Header="tesst" Width="100" />
-                            <GridViewColumn Header="tesst" Width="100"/>
-                            <GridViewColumn Header="tesst" Width="100"/>
-                            <GridViewColumn Header="tesst" Width="100"/>
-                            <GridViewColumn Header="tesst" Width="100"/>
+                            <GridViewColumn Header="bien so" DisplayMemberBinding="{Binding bienSo}" Width="100" />
+                            <GridViewColumn Header="Hang Xe" DisplayMemberBinding="{Binding HangXe}" Width="100"/>
+                            <GridViewColumn Header="Mauf sac" DisplayMemberBinding="{Binding MauSac}" Width="100"/>
+                            <GridViewColumn Header="So ghe" DisplayMemberBinding="{Binding SoGhe}" Width="100"/>
+                            <GridViewColumn Header="nam san xuat" DisplayMemberBinding="{Binding namsanxuat}" Width="100"/>
+                            <GridViewColumn Header="trang thai" DisplayMemberBinding="{Binding TrangThai}" Width="100"/>
+                            <GridViewColumn Header="gia thue" DisplayMemberBinding="{Binding GiaThue}" Width="100"/>
+                            <GridViewColumn Width="70">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border BorderThickness="0" >
+                                            <Button Background="Transparent" BorderThickness="0" Click="Button_Click" CommandParameter="{Binding}" >
+                                                <fa:IconImage Icon="Gear" Foreground="Gray" Height="20"/>
+                                            </Button>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+
+                            <GridViewColumn Width="70">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border BorderThickness="0" >
+                                            <Button Background="Transparent" BorderThickness="0" Click="Button_Click_1" CommandParameter="{Binding}">
+                                                <fa:IconImage Icon="HandHoldingDollar" Foreground="Gray" Height="20"/>
+                                            </Button>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

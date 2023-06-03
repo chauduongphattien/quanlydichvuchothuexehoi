@@ -21,6 +21,13 @@
                       BorderBrush="Red"
                       BorderThickness="2">
             <ListView x:Name="lvK_hang" Background="Transparent">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
 
@@ -33,12 +40,12 @@
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
                         
-                        <GridViewColumn Header="ID" Width="50"/>
-                        <GridViewColumn Header="ID" Width="50"/>
-                        <GridViewColumn Header="ID" Width="50"/>
-                        <GridViewColumn Header="ID" Width="50"/>
-                        <GridViewColumn Header="ID" Width="50"/>
-                        <GridViewColumn Header="ID" Width="50"/>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="50"/>
+                        <GridViewColumn Header="Ten" DisplayMemberBinding="{Binding Ten}" Width="200"/>
+                        <GridViewColumn Header="Cmnd" DisplayMemberBinding="{Binding CMND}" Width="100"/>
+                            <GridViewColumn Header="SDT" DisplayMemberBinding="{Binding SDT}" Width="100"/>
+                        <GridViewColumn Header="mail" DisplayMemberBinding="{Binding Email}" Width="200"/>
+                        <GridViewColumn Header="dia chi" DisplayMemberBinding="{Binding DiaChi}" Width="150"/>
                     </GridView>
                     
                 </ListView.View>

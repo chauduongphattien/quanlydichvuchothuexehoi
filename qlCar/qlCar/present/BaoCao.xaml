@@ -4,6 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:qlCar.present"
+            
+            xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000">
     <Grid>
@@ -17,11 +20,23 @@
         <Border Grid.Row="0" Background="Transparent">
             <Label Content="Báo cáo" Foreground="Cyan" FontSize="20" VerticalContentAlignment="Center"
                    HorizontalContentAlignment="Center"/>
+
+
+            
         </Border>
 
         <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="450" Width="900"
                       VerticalScrollBarVisibility="Auto" Grid.Row="1">
-            <ListView Background="Transparent">
+            <ListView Background="Transparent" x:Name="listBC" SelectionMode="Single">
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
@@ -32,11 +47,13 @@
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
                         
-                        <GridViewColumn Header="ma bao cao" Width="100"/>
-                        <GridViewColumn Header="ma bao cao" Width="100"/>
-                        <GridViewColumn Header="ma bao cao" Width="100"/>
-                        <GridViewColumn Header="ma bao cao" Width="100"/>
-                        <GridViewColumn Header="ma bao cao" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding id}" Header="ma bao cao" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding tongSoXe}"  Header="tong xe" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding soXeDaThue}" Header="xe da thue" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding soxeDangBaoTri}" Header="xe bao tri" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding soxeConLai}" Header="xe con lai" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding DoanThu}" Header="tong doanh thu" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding NgayBaoCao}" Header="ngay bao cao" Width="100"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -45,15 +62,26 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft">
             <Border Margin="20,0,0,0" BorderThickness="0" Background="Purple" Width="100" CornerRadius="9" Height="30">
                 <Button Content="Xuất báo cáo"  Background="Transparent"
+                        x:Name="xuatvalubaocao"
+                        Click="xuatvalubaocao_Click"
+                        Foreground="White" BorderThickness="0" />
+            </Border>
+            <Border Margin="10,0,0,0" BorderThickness="0" Background="Purple" Width="100" CornerRadius="9" Height="30">
+                <Button Content="them moi"  Background="Transparent"
+                        x:Name="thembaocao"
+                        Click="thembaocao_Click"
                         Foreground="White" BorderThickness="0" />
             </Border>
 
-
-            <Border Margin="600,0,0,0" BorderThickness="0" Background="Purple" Width="100" CornerRadius="9" Height="30">
-                <Button Content="Theo ngày"  Background="Transparent"
+            <Border Margin="500,0,0,0" BorderThickness="0" Background="Purple" Width="100" CornerRadius="9" Height="30">
+                <Button Content="Thống kê biểu đồ"  
+                        x:Name="bieudoBut"
+                        Click="bieudoBut_Click"
+                        Background="Transparent"
                         Foreground="White" BorderThickness="0" />
             </Border>
             <DatePicker Height="30" Margin="20,0,0,0"/>
+           
 
         </StackPanel>
     </Grid>

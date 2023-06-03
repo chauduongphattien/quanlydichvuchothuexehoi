@@ -1,0 +1,74 @@
+﻿<Window x:Class="qlCar.present.datxeForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:qlCar.present"
+        mc:Ignorable="d"
+         WindowStyle="none"
+         WindowStartupLocation="CenterScreen"
+         AllowsTransparency="True"
+        Background="Transparent"
+        Title="datxeForm" Height="350" Width="600">
+    <Grid>
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Black" Offset="0.3"/>
+                    <GradientStop Color="blue" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" x:Name="ctrBar" MouseLeftButtonDown="ctrBar_MouseLeftButtonDown">
+                    <Label Content="Chi tiết bảo trì" VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center" Foreground="White"
+                           FontSize="40" FontWeight="ExtraBold"/>
+                </Border>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                    <Label Content="ngay bảo trì: " Foreground="White" FontSize="20" VerticalAlignment="Center"
+                           HorizontalContentAlignment="Center"/>
+                    <DatePicker x:Name="datetimePickerNhan" Height="30" VerticalContentAlignment="Center" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+                    <Label Margin="0,0,20,0" Content="ngay trả xe: " Foreground="White" FontSize="20" VerticalAlignment="Center"
+                           HorizontalContentAlignment="Center"/>
+                    <DatePicker Width="200" Height="30" x:Name="datetimePickerTra" VerticalContentAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="mô tả:" Foreground="White" HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           FontSize="15" />
+                    <TextBox Width="150" Height="30" Margin="20,0,20,0" Background="Transparent" x:Name="motatxt" BorderThickness="1,0,0,1" Foreground="White"/>
+                    <Label Content="chi phí:" Foreground="White" HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           FontSize="15" />
+                    <TextBox Width="50" Height="30" Margin="10,0,0,0" Background="Transparent" x:Name="chiphitxt" BorderThickness="1,0,0,1" Foreground="White"/>
+
+                </StackPanel>
+                <StackPanel Grid.Row="4" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="OK" Width="100" Height="40" Foreground="White" Background="Purple" FontWeight="Bold"
+                            FontSize="20"
+                            x:Name="okBut"
+                            Click="okBut_Click"/>
+
+                    <Button Content="Cancal" Width="100" Height="40" Foreground="White" Background="Gray"
+                            Margin="100,0,0,0"
+                            FontWeight="Bold"
+                            Name="huyBut"
+                            Click="huyBut_Click"
+                            FontSize="20"/>
+                </StackPanel>
+            </Grid>
+            
+        </Border>
+    </Grid>
+</Window>

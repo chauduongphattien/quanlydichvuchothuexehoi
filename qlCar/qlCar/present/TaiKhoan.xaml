@@ -31,14 +31,14 @@
             </Border>
 
 
-            <Border Grid.Row="1" BorderThickness="2" BorderBrush="Purple" CornerRadius="50"
+            <Border x:Name="AvtBackGr" Grid.Row="1" BorderThickness="2" BorderBrush="Purple" CornerRadius="50"
                     Height="200" Width="180" Background="Wheat">
                 
             </Border>
             <Grid Grid.Row="2">
                 <Border CornerRadius="15" Width="100" Height="30" Background="Purple" 
                         BorderThickness="0">
-                    <Button Background="Transparent" Content="Thay Avt" BorderThickness="0" Foreground="White"/>
+                    <Button Background="Transparent" Content="Thay Avt" BorderThickness="0" Foreground="White" x:Name="thâyvtBtn" Click="thâyvtBtn_Click"/>
                 </Border>
             </Grid>
             
@@ -63,7 +63,9 @@
                     <StackPanel Margin="15,0,0,0" Orientation="Vertical" Width="15">
                         <Label Margin="0,-5,0,0" HorizontalContentAlignment="Right" Width="15" Height="30" Content="0" Foreground="Red" FontSize="10" />
                     </StackPanel>
-                    <Button Background="Transparent" BorderThickness="0" Margin="-8,0,0,0">
+                    <Button Background="Transparent" BorderThickness="0" Margin="-8,0,0,0"
+                            x:Name="chatBut"
+                            Click="chatBut_Click">
                         <fa:IconImage Icon="Bell" Foreground="Aqua" />
                     </Button>
                     
@@ -115,8 +117,8 @@
                         <Label x:Name="gioitinhLB" Content=" " Foreground="Black" VerticalContentAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel  Grid.Row="5" Orientation="Horizontal">
-                        <Label Content="Địa chỉ: " Foreground="Aqua" Margin="20,0,0,0" VerticalContentAlignment="Center"/>
-                        <Label x:Name="diachiLB" Content=" " Foreground="Black" VerticalContentAlignment="Center" Margin="10,0,0,0"/>
+                        <Label Content="ID: " Foreground="Aqua" Margin="20,0,0,0" VerticalContentAlignment="Center"/>
+                        <Label x:Name="idLB" Content=" " Foreground="Black" VerticalContentAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
 
                 </Grid>
@@ -134,7 +136,7 @@
 
                 <Border Grid.Column="0" Background="DarkSlateBlue" Width="60" Height="25"
                         CornerRadius="5">
-                    <Button Width="60" Height="25"
+                    <Button Width="60" Height="25" x:Name="doittBut" Click="doittBut_Click"
                            Background="Transparent" BorderThickness="0" Content="Sữa T.tin"
                             Foreground="White"
                             FontFamily="Roboto">
@@ -145,7 +147,7 @@
 
                 <Border Grid.Column="1" Background="DarkOliveGreen" Width="60" Height="25"
                         CornerRadius="5">
-                    <Button Width="60" Height="25"
+                    <Button x:Name="doiMKBut" Click="doiMKBut_Click" Width="60" Height="25"
                            Background="Transparent" BorderThickness="0" Content="Đổi MK"
                             Foreground="White"
                             FontFamily="Roboto">

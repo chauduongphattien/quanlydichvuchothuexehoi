@@ -25,24 +25,26 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="0">
-                <Button Height="30" Background="Transparent" BorderThickness="0">
+                <Button Height="30" x:Name="tranferleft" Click="tranferleft_Click" Background="Transparent" BorderThickness="0">
                     <fa:IconImage Icon="ChevronLeft" Foreground="White" Width="20" Height="20"/>
 
                 </Button>
             </Border>
-            <Border Grid.Column="1" Height="500" CornerRadius="50">
+            <Border Grid.Column="1"  Height="500" CornerRadius="50">
                 <Border.Background>
-                    <ImageBrush ImageSource="../image/car.jpg"/>
+                    <ImageBrush x:Name="slide" />
                 </Border.Background>
-                <Label Content="Xe bao xịn bao nhanh" Foreground="Red" FontSize="70"
+                <Label Content="Xe bao xịn bao nhanh" x:Name="ctLB" Foreground="Red" FontSize="70"
                        VerticalContentAlignment="Center"
                        HorizontalContentAlignment="Center"
                        FontWeight="Bold" />
                 
             </Border>
             <Border Grid.Column="2">
-                <Button Height="30" Background="Transparent" BorderThickness="0">
-                    <fa:IconImage Icon="ChevronRight" Foreground="White" Width="20" Height="20"/>
+                <Button Height="30" x:Name="tranferright" Click="tranferright_Click" Background="Transparent" BorderThickness="0">
+                    <fa:IconImage Icon="ChevronRight" Foreground="White" Width="20" Height="20"
+                                 
+                                 />
                 </Button>
             </Border>
         </Grid>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="qlCar.present.thongtinNhanvien"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:qlCar.present"
+        mc:Ignorable="d"
+          Background="Transparent"
+        WindowStyle="none"
+         WindowStartupLocation="CenterScreen"
+         AllowsTransparency="True"
+        Title="thongtinNhanvien" Height="450" Width="800">
+    <Border Background="Black" CornerRadius="30">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="50" MouseLeftButtonDown="avtNhanvien_MouseLeftButtonDown" BorderThickness="2" BorderBrush="red" x:Name="avtNhanvien" Grid.Row="0" Width="200" Height="200">
+                
+            </Border>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Năm làm việc" Foreground="White" VerticalContentAlignment="Center" FontSize="18" Margin="0,0,30,0"/>
+                <Label Content="" x:Name="lbNamlv" Foreground="White" FontSize="18" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="chức vụ" Foreground="White" VerticalContentAlignment="Center" FontSize="18" Margin="0,0,30,0"/>
+                <Label Content="" x:Name="lbChucvu" Foreground="White" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label Content="Lương"  Foreground="White" FontSize="18" VerticalContentAlignment="Center" Margin="20,0,10,0"/>
+                <Label Content="" x:Name="outluongLB" Foreground="White" FontSize="18" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="OK" x:Name="okBut" Click="okBut_Click" Foreground="White" Height="30" Width="100" Background="Transparent" FontSize="20"/>
+
+            </StackPanel>
+
+        </Grid>
+        
+    </Border>
+</Window>

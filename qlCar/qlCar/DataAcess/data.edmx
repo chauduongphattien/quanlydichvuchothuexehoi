@@ -1,0 +1,833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="quanlyxehoiDATAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BaoCao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tongSoXe" Type="int" Nullable="false" />
+          <Property Name="soXeDaThue" Type="int" Nullable="false" />
+          <Property Name="soxeConLai" Type="int" Nullable="false" />
+          <Property Name="DoanThu" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="soxeDangBaoTri" Type="int" Nullable="false" />
+          <Property Name="NgayBaoCao" Type="datetime" Nullable="false" />
+          <Property Name="LoiNhuan" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BaoTri">
+          <Key>
+            <PropertyRef Name="Ma_BT" />
+          </Key>
+          <Property Name="Ma_BT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoXe" Type="nvarchar" MaxLength="20" />
+          <Property Name="NgayBatDau" Type="datetime" Nullable="false" />
+          <Property Name="LoaiDV" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="chiphi" Type="decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="ngayKetThuc" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DatTruoc">
+          <Key>
+            <PropertyRef Name="maDon" />
+          </Key>
+          <Property Name="maDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaXe" Type="nvarchar" MaxLength="20" />
+          <Property Name="NgayDat" Type="datetime" Nullable="false" />
+          <Property Name="NgayNhanXe" Type="datetime" Nullable="false" />
+          <Property Name="NgayTra" Type="datetime" Nullable="false" />
+          <Property Name="MaKH" Type="int" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CMND" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="SDT" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="20" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'quanlyxehoiDATA.dbo.Luong' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Luong">
+          <Key>
+            <PropertyRef Name="namCongHien" />
+            <PropertyRef Name="huowngLuong" />
+            <PropertyRef Name="vitri" />
+          </Key>
+          <Property Name="namCongHien" Type="int" Nullable="false" />
+          <Property Name="huowngLuong" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="vitri" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sdt" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="mail" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="vitriCV" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="soNamLV" Type="int" Nullable="false" />
+          <Property Name="gioitinh" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="pass" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="avt" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ThueXe">
+          <Key>
+            <PropertyRef Name="Ma_GD" />
+          </Key>
+          <Property Name="Ma_GD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaKhach" Type="int" Nullable="false" />
+          <Property Name="SoXe" Type="nvarchar" MaxLength="20" />
+          <Property Name="NgayThue" Type="datetime" Nullable="false" />
+          <Property Name="NgayTra" Type="datetime" Nullable="false" />
+          <Property Name="songaythue" Type="int" Nullable="false" />
+          <Property Name="chiphi" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TinNhan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="idGui" Type="int" Nullable="false" />
+          <Property Name="idNhan" Type="int" Nullable="false" />
+          <Property Name="noidung" Type="nvarchar(max)" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="XEHOI">
+          <Key>
+            <PropertyRef Name="bienSo" />
+          </Key>
+          <Property Name="bienSo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="HangXe" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="HinhAnh" Type="varbinary(max)" />
+          <Property Name="MauSac" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SoGhe" Type="int" Nullable="false" />
+          <Property Name="namsanxuat" Type="int" Nullable="false" />
+          <Property Name="TrangThai" Type="int" Nullable="false" />
+          <Property Name="GiaThue" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__BaoTri__SoXe__3F466844">
+          <End Role="XEHOI" Type="Self.XEHOI" Multiplicity="0..1" />
+          <End Role="BaoTri" Type="Self.BaoTri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XEHOI">
+              <PropertyRef Name="bienSo" />
+            </Principal>
+            <Dependent Role="BaoTri">
+              <PropertyRef Name="SoXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatTruoc__MaKH__4316F928">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+          <End Role="DatTruoc" Type="Self.DatTruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DatTruoc">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatTruoc__MaXe__4222D4EF">
+          <End Role="XEHOI" Type="Self.XEHOI" Multiplicity="0..1" />
+          <End Role="DatTruoc" Type="Self.DatTruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XEHOI">
+              <PropertyRef Name="bienSo" />
+            </Principal>
+            <Dependent Role="DatTruoc">
+              <PropertyRef Name="MaXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaiKhoan__id__5DCAEF64">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThueXe__MaKhach__3B75D760">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="ThueXe" Type="Self.ThueXe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ThueXe">
+              <PropertyRef Name="MaKhach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThueXe__SoXe__3C69FB99">
+          <End Role="XEHOI" Type="Self.XEHOI" Multiplicity="0..1" />
+          <End Role="ThueXe" Type="Self.ThueXe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XEHOI">
+              <PropertyRef Name="bienSo" />
+            </Principal>
+            <Dependent Role="ThueXe">
+              <PropertyRef Name="SoXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="doiThongTin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mail" Type="nvarchar" Mode="In" />
+          <Parameter Name="sdt" Type="nvarchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="dsp_datxe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tebKh" Type="nvarchar" Mode="In" />
+          <Parameter Name="cmndKH" Type="nvarchar" Mode="In" />
+          <Parameter Name="sdtKH" Type="nvarchar" Mode="In" />
+          <Parameter Name="mailKH" Type="nvarchar" Mode="In" />
+          <Parameter Name="diachiKH" Type="nvarchar" Mode="In" />
+          <Parameter Name="sxe" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngayThue" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytra" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="get_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="sdt" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_AddNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="SDT" Type="nvarchar" Mode="In" />
+          <Parameter Name="mail" Type="nvarchar" Mode="In" />
+          <Parameter Name="VitriCV" Type="nvarchar" Mode="In" />
+          <Parameter Name="SoNamLV" Type="int" Mode="In" />
+          <Parameter Name="gioitinh" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_baotri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bienso" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngaybatdau" Type="datetime" Mode="In" />
+          <Parameter Name="chiphi" Type="decimal" Mode="In" />
+          <Parameter Name="dichvu" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sdt" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_xuatbaocao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybaaocao" Type="datetime" Mode="In" />
+          <Parameter Name="doanhthu" Type="decimal" Mode="In" />
+        </Function>
+        <EntityContainer Name="quanlyxehoiDATAModelStoreContainer">
+          <EntitySet Name="BaoCao" EntityType="Self.BaoCao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BaoTri" EntityType="Self.BaoTri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatTruoc" EntityType="Self.DatTruoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThueXe" EntityType="Self.ThueXe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TinNhan" EntityType="Self.TinNhan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="XEHOI" EntityType="Self.XEHOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Luong" EntityType="Self.Luong" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Luong].[namCongHien] AS [namCongHien], 
+    [Luong].[huowngLuong] AS [huowngLuong], 
+    [Luong].[vitri] AS [vitri]
+    FROM [dbo].[Luong] AS [Luong]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__BaoTri__SoXe__3F466844" Association="Self.FK__BaoTri__SoXe__3F466844">
+            <End Role="XEHOI" EntitySet="XEHOI" />
+            <End Role="BaoTri" EntitySet="BaoTri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatTruoc__MaKH__4316F928" Association="Self.FK__DatTruoc__MaKH__4316F928">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="DatTruoc" EntitySet="DatTruoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatTruoc__MaXe__4222D4EF" Association="Self.FK__DatTruoc__MaXe__4222D4EF">
+            <End Role="XEHOI" EntitySet="XEHOI" />
+            <End Role="DatTruoc" EntitySet="DatTruoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaiKhoan__id__5DCAEF64" Association="Self.FK__TaiKhoan__id__5DCAEF64">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThueXe__MaKhach__3B75D760" Association="Self.FK__ThueXe__MaKhach__3B75D760">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="ThueXe" EntitySet="ThueXe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThueXe__SoXe__3C69FB99" Association="Self.FK__ThueXe__SoXe__3C69FB99">
+            <End Role="XEHOI" EntitySet="XEHOI" />
+            <End Role="ThueXe" EntitySet="ThueXe" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="quanlyxehoiDATAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BaoCao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tongSoXe" Type="Int32" Nullable="false" />
+          <Property Name="soXeDaThue" Type="Int32" Nullable="false" />
+          <Property Name="soxeConLai" Type="Int32" Nullable="false" />
+          <Property Name="DoanThu" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="soxeDangBaoTri" Type="Int32" Nullable="false" />
+          <Property Name="NgayBaoCao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LoiNhuan" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BaoTri">
+          <Key>
+            <PropertyRef Name="Ma_BT" />
+          </Key>
+          <Property Name="Ma_BT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoXe" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NgayBatDau" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LoaiDV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="chiphi" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+          <Property Name="ngayKetThuc" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="XEHOI" Relationship="Self.FK__BaoTri__SoXe__3F466844" FromRole="BaoTri" ToRole="XEHOI" />
+        </EntityType>
+        <EntityType Name="DatTruoc">
+          <Key>
+            <PropertyRef Name="maDon" />
+          </Key>
+          <Property Name="maDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaXe" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NgayDat" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NgayNhanXe" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NgayTra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MaKH" Type="Int32" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DatTruoc__MaKH__4316F928" FromRole="DatTruoc" ToRole="KHACHHANG" />
+          <NavigationProperty Name="XEHOI" Relationship="Self.FK__DatTruoc__MaXe__4222D4EF" FromRole="DatTruoc" ToRole="XEHOI" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CMND" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DatTruocs" Relationship="Self.FK__DatTruoc__MaKH__4316F928" FromRole="KHACHHANG" ToRole="DatTruoc" />
+          <NavigationProperty Name="ThueXes" Relationship="Self.FK__ThueXe__MaKhach__3B75D760" FromRole="KHACHHANG" ToRole="ThueXe" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sdt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="vitriCV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="soNamLV" Type="Int32" Nullable="false" />
+          <Property Name="gioitinh" Type="Int32" />
+          <NavigationProperty Name="TaiKhoans" Relationship="Self.FK__TaiKhoan__id__5DCAEF64" FromRole="NhanVien" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="avt" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__TaiKhoan__id__5DCAEF64" FromRole="TaiKhoan" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="ThueXe">
+          <Key>
+            <PropertyRef Name="Ma_GD" />
+          </Key>
+          <Property Name="Ma_GD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaKhach" Type="Int32" Nullable="false" />
+          <Property Name="SoXe" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NgayThue" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NgayTra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="songaythue" Type="Int32" Nullable="false" />
+          <Property Name="chiphi" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__ThueXe__MaKhach__3B75D760" FromRole="ThueXe" ToRole="KHACHHANG" />
+          <NavigationProperty Name="XEHOI" Relationship="Self.FK__ThueXe__SoXe__3C69FB99" FromRole="ThueXe" ToRole="XEHOI" />
+        </EntityType>
+        <EntityType Name="TinNhan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="idGui" Type="Int32" Nullable="false" />
+          <Property Name="idNhan" Type="Int32" Nullable="false" />
+          <Property Name="noidung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="XEHOI">
+          <Key>
+            <PropertyRef Name="bienSo" />
+          </Key>
+          <Property Name="bienSo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HangXe" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MauSac" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoGhe" Type="Int32" Nullable="false" />
+          <Property Name="namsanxuat" Type="Int32" Nullable="false" />
+          <Property Name="TrangThai" Type="Int32" Nullable="false" />
+          <Property Name="GiaThue" Type="Double" Nullable="false" />
+          <NavigationProperty Name="BaoTris" Relationship="Self.FK__BaoTri__SoXe__3F466844" FromRole="XEHOI" ToRole="BaoTri" />
+          <NavigationProperty Name="DatTruocs" Relationship="Self.FK__DatTruoc__MaXe__4222D4EF" FromRole="XEHOI" ToRole="DatTruoc" />
+          <NavigationProperty Name="ThueXes" Relationship="Self.FK__ThueXe__SoXe__3C69FB99" FromRole="XEHOI" ToRole="ThueXe" />
+        </EntityType>
+        <EntityType Name="Luong">
+          <Key>
+            <PropertyRef Name="namCongHien" />
+            <PropertyRef Name="huowngLuong" />
+            <PropertyRef Name="vitri" />
+          </Key>
+          <Property Name="namCongHien" Type="Int32" Nullable="false" />
+          <Property Name="huowngLuong" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="vitri" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__BaoTri__SoXe__3F466844">
+          <End Role="XEHOI" Type="Self.XEHOI" Multiplicity="0..1" />
+          <End Role="BaoTri" Type="Self.BaoTri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XEHOI">
+              <PropertyRef Name="bienSo" />
+            </Principal>
+            <Dependent Role="BaoTri">
+              <PropertyRef Name="SoXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatTruoc__MaKH__4316F928">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+          <End Role="DatTruoc" Type="Self.DatTruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DatTruoc">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatTruoc__MaXe__4222D4EF">
+          <End Role="XEHOI" Type="Self.XEHOI" Multiplicity="0..1" />
+          <End Role="DatTruoc" Type="Self.DatTruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XEHOI">
+              <PropertyRef Name="bienSo" />
+            </Principal>
+            <Dependent Role="DatTruoc">
+              <PropertyRef Name="MaXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThueXe__MaKhach__3B75D760">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="ThueXe" Type="Self.ThueXe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ThueXe">
+              <PropertyRef Name="MaKhach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaiKhoan__id__5DCAEF64">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThueXe__SoXe__3C69FB99">
+          <End Role="XEHOI" Type="Self.XEHOI" Multiplicity="0..1" />
+          <End Role="ThueXe" Type="Self.ThueXe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XEHOI">
+              <PropertyRef Name="bienSo" />
+            </Principal>
+            <Dependent Role="ThueXe">
+              <PropertyRef Name="SoXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="quanlyxehoiDATAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BaoCaos" EntityType="Self.BaoCao" />
+          <EntitySet Name="BaoTris" EntityType="Self.BaoTri" />
+          <EntitySet Name="DatTruocs" EntityType="Self.DatTruoc" />
+          <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+          <EntitySet Name="ThueXes" EntityType="Self.ThueXe" />
+          <EntitySet Name="TinNhans" EntityType="Self.TinNhan" />
+          <EntitySet Name="XEHOIs" EntityType="Self.XEHOI" />
+          <EntitySet Name="Luongs" EntityType="Self.Luong" />
+          <AssociationSet Name="FK__BaoTri__SoXe__3F466844" Association="Self.FK__BaoTri__SoXe__3F466844">
+            <End Role="XEHOI" EntitySet="XEHOIs" />
+            <End Role="BaoTri" EntitySet="BaoTris" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatTruoc__MaKH__4316F928" Association="Self.FK__DatTruoc__MaKH__4316F928">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="DatTruoc" EntitySet="DatTruocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatTruoc__MaXe__4222D4EF" Association="Self.FK__DatTruoc__MaXe__4222D4EF">
+            <End Role="XEHOI" EntitySet="XEHOIs" />
+            <End Role="DatTruoc" EntitySet="DatTruocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThueXe__MaKhach__3B75D760" Association="Self.FK__ThueXe__MaKhach__3B75D760">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="ThueXe" EntitySet="ThueXes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaiKhoan__id__5DCAEF64" Association="Self.FK__TaiKhoan__id__5DCAEF64">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThueXe__SoXe__3C69FB99" Association="Self.FK__ThueXe__SoXe__3C69FB99">
+            <End Role="XEHOI" EntitySet="XEHOIs" />
+            <End Role="ThueXe" EntitySet="ThueXes" />
+          </AssociationSet>
+          <FunctionImport Name="doiThongTin">
+            <Parameter Name="mail" Mode="In" Type="String" />
+            <Parameter Name="sdt" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="dsp_datxe">
+            <Parameter Name="tebKh" Mode="In" Type="String" />
+            <Parameter Name="cmndKH" Mode="In" Type="String" />
+            <Parameter Name="sdtKH" Mode="In" Type="String" />
+            <Parameter Name="mailKH" Mode="In" Type="String" />
+            <Parameter Name="diachiKH" Mode="In" Type="String" />
+            <Parameter Name="sxe" Mode="In" Type="String" />
+            <Parameter Name="ngayThue" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytra" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_AddNhanVien">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Ten" Mode="In" Type="String" />
+            <Parameter Name="SDT" Mode="In" Type="String" />
+            <Parameter Name="mail" Mode="In" Type="String" />
+            <Parameter Name="VitriCV" Mode="In" Type="String" />
+            <Parameter Name="SoNamLV" Mode="In" Type="Int32" />
+            <Parameter Name="gioitinh" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_baotri">
+            <Parameter Name="bienso" Mode="In" Type="String" />
+            <Parameter Name="ngaybatdau" Mode="In" Type="DateTime" />
+            <Parameter Name="chiphi" Mode="In" Type="Decimal" />
+            <Parameter Name="dichvu" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(quanlyxehoiDATAModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(quanlyxehoiDATAModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_login" ReturnType="Collection(String)">
+            <Parameter Name="sdt" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="sp_xuatbaocao">
+            <Parameter Name="ngaybaaocao" Mode="In" Type="DateTime" />
+            <Parameter Name="doanhthu" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="quanlyxehoiDATAModelStoreContainer" CdmEntityContainer="quanlyxehoiDATAEntities">
+          <EntitySetMapping Name="BaoCaos">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.BaoCao">
+              <MappingFragment StoreEntitySet="BaoCao">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tongSoXe" ColumnName="tongSoXe" />
+                <ScalarProperty Name="soXeDaThue" ColumnName="soXeDaThue" />
+                <ScalarProperty Name="soxeConLai" ColumnName="soxeConLai" />
+                <ScalarProperty Name="DoanThu" ColumnName="DoanThu" />
+                <ScalarProperty Name="soxeDangBaoTri" ColumnName="soxeDangBaoTri" />
+                <ScalarProperty Name="NgayBaoCao" ColumnName="NgayBaoCao" />
+                <ScalarProperty Name="LoiNhuan" ColumnName="LoiNhuan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BaoTris">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.BaoTri">
+              <MappingFragment StoreEntitySet="BaoTri">
+                <ScalarProperty Name="Ma_BT" ColumnName="Ma_BT" />
+                <ScalarProperty Name="SoXe" ColumnName="SoXe" />
+                <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
+                <ScalarProperty Name="LoaiDV" ColumnName="LoaiDV" />
+                <ScalarProperty Name="chiphi" ColumnName="chiphi" />
+                <ScalarProperty Name="ngayKetThuc" ColumnName="ngayKetThuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatTruocs">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.DatTruoc">
+              <MappingFragment StoreEntitySet="DatTruoc">
+                <ScalarProperty Name="maDon" ColumnName="maDon" />
+                <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+                <ScalarProperty Name="NgayNhanXe" ColumnName="NgayNhanXe" />
+                <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhanViens">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="vitriCV" ColumnName="vitriCV" />
+                <ScalarProperty Name="soNamLV" ColumnName="soNamLV" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="avt" ColumnName="avt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThueXes">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.ThueXe">
+              <MappingFragment StoreEntitySet="ThueXe">
+                <ScalarProperty Name="Ma_GD" ColumnName="Ma_GD" />
+                <ScalarProperty Name="MaKhach" ColumnName="MaKhach" />
+                <ScalarProperty Name="SoXe" ColumnName="SoXe" />
+                <ScalarProperty Name="NgayThue" ColumnName="NgayThue" />
+                <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+                <ScalarProperty Name="songaythue" ColumnName="songaythue" />
+                <ScalarProperty Name="chiphi" ColumnName="chiphi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TinNhans">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.TinNhan">
+              <MappingFragment StoreEntitySet="TinNhan">
+                <ScalarProperty Name="idGui" ColumnName="idGui" />
+                <ScalarProperty Name="idNhan" ColumnName="idNhan" />
+                <ScalarProperty Name="noidung" ColumnName="noidung" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XEHOIs">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.XEHOI">
+              <MappingFragment StoreEntitySet="XEHOI">
+                <ScalarProperty Name="bienSo" ColumnName="bienSo" />
+                <ScalarProperty Name="HangXe" ColumnName="HangXe" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="MauSac" ColumnName="MauSac" />
+                <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
+                <ScalarProperty Name="namsanxuat" ColumnName="namsanxuat" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="GiaThue" ColumnName="GiaThue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Luongs">
+            <EntityTypeMapping TypeName="quanlyxehoiDATAModel.Luong">
+              <MappingFragment StoreEntitySet="Luong">
+                <ScalarProperty Name="namCongHien" ColumnName="namCongHien" />
+                <ScalarProperty Name="huowngLuong" ColumnName="huowngLuong" />
+                <ScalarProperty Name="vitri" ColumnName="vitri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="doiThongTin" FunctionName="quanlyxehoiDATAModel.Store.doiThongTin" />
+          <FunctionImportMapping FunctionImportName="dsp_datxe" FunctionName="quanlyxehoiDATAModel.Store.dsp_datxe" />
+          <FunctionImportMapping FunctionImportName="sp_AddNhanVien" FunctionName="quanlyxehoiDATAModel.Store.sp_AddNhanVien" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="quanlyxehoiDATAModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_baotri" FunctionName="quanlyxehoiDATAModel.Store.sp_baotri" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="quanlyxehoiDATAModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="quanlyxehoiDATAModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="quanlyxehoiDATAModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="quanlyxehoiDATAModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="quanlyxehoiDATAModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="quanlyxehoiDATAModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_login" FunctionName="quanlyxehoiDATAModel.Store.sp_login" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="quanlyxehoiDATAModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="quanlyxehoiDATAModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_xuatbaocao" FunctionName="quanlyxehoiDATAModel.Store.sp_xuatbaocao" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
